@@ -1,0 +1,107 @@
+<div class="content-container">
+  <div class="content-area">
+    <div class="clr-row">
+      <div class="clr-col-12">
+        <p style="text-align: center">
+          <!-- interpolation & pipe -->
+          {{currentTime | date:'dd-MM-yyyy' }}
+        </p>
+      </div>
+    </div>
+    <div class="clr-row" *ngIf="flashMsg">
+      <div class="clr-col-5">
+        &nbsp;
+      </div>
+      <div class="clr-col-2">
+        <br>
+        <div class="alert alert-success" role="alert">
+          <div class="alert-items">
+            <div class="alert-item static">
+              <div class="alert-icon-wrapper">
+                <clr-icon class="alert-icon" shape="exclamation-circle"></clr-icon>
+              </div>
+              <span class="alert-text">
+                        <!-- interpolation -->
+                {{flashMsg}}
+                    </span>
+            </div>
+          </div>
+        </div>
+        <br/>
+      </div>
+      <div class="clr-col-5">
+        &nbsp;
+      </div>
+    </div>
+    <div class="clr-row">
+      <div class="clr-col-12">
+        <h2 style="text-align: center">Customers</h2>
+      </div>
+    </div>
+    <div class="clr-row">
+      <div class="clr-col-2">
+        &nbsp;
+      </div>
+      <div class="clr-col-4">
+        <form class="clr-form clr-form-horizontal">
+          <div class="clr-form-control">
+            <label for="firstName" class="clr-control-label">First Name</label>
+            <div class="clr-control-container">
+              <div class="clr-input-wrapper">
+                <!-- two way data binding -->
+                <input type="text" [(ngModel)]="customer.firstName" id="firstName" name="firstName"
+                       placeholder="Placeholder" class="clr-input"/>
+              </div>
+            </div>
+          </div>
+
+          <div class="clr-form-control">
+            <label for="lastName" class="clr-control-label">Last Name</label>
+            <div class="clr-control-container">
+              <div class="clr-input-wrapper">
+                <input [(ngModel)]="customer.lastName" type="text" id="lastName" name="lastName"
+                       placeholder="Placeholder" class="clr-input"/>
+              </div>
+            </div>
+          </div>
+
+          <div class="clr-form-control">
+            <div class="clr-control-container">
+              <!-- event binding -->
+              <button type="submit" class="btn btn-primary" (click)="saveCustomer()">Save</button>
+            </div>
+          </div>
+
+        </form>
+      </div>
+
+      <div class="clr-col-4">
+        <clr-datagrid>
+          <clr-dg-column [clrDgField]="'id'">ID</clr-dg-column>
+          <clr-dg-column [clrDgField]="'firstName'">First Name</clr-dg-column>
+          <clr-dg-column [clrDgField]="'lastName'">Last Name</clr-dg-column>
+          <clr-dg-column>Action</clr-dg-column>
+          <!-- structural directive -->
+          <clr-dg-row clr-dg-row *clrDgItems="let customer of customers">
+            <clr-dg-cell>{{customer.id}}</clr-dg-cell>
+            <clr-dg-cell>{{customer.firstName}}</clr-dg-cell>
+            <clr-dg-cell>{{customer.lastName}}</clr-dg-cell>
+            <clr-dg-cell>
+              <cds-icon shape="trash" style="cursor: pointer; color: blue" (click)="deleteCustomer(customer)">
+              </cds-icon>
+            </clr-dg-cell>
+          </clr-dg-row>
+          <clr-dg-footer>
+            <clr-dg-pagination #pagination [clrDgPageSize]="10">
+              <clr-dg-page-size [clrPageSizeOptions]="[10,20,50,100]">Customers per page</clr-dg-page-size>
+              {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}} of {{pagination.totalItems}} customers
+            </clr-dg-pagination>
+          </clr-dg-footer>
+        </clr-datagrid>
+      </div>
+      <div class="clr-col-2">
+
+      </div>
+    </div>
+  </div>
+</div>

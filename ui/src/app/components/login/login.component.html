@@ -1,0 +1,36 @@
+<div class="content-container">
+  <div class="content-area">
+    <div class="login-wrapper">
+      <!-- form group binding -->
+      <form class="login" [formGroup]="loginForm">
+        <section class="title">
+          Clarity App Login
+        </section>
+        <div class="login-group">
+          <div class="clr-form-control">
+            <div class="clr-control-container">
+              <div class="clr-input-wrapper">
+                <input type="text" formControlName="username" placeholder="Username" id="username" class="clr-input" />
+              </div>
+            </div>
+          </div>
+
+          <div class="clr-form-control">
+            <div class="clr-control-container">
+              <div class="clr-input-wrapper">
+                <input formControlName="password" type="password" placeholder="Password" id="password" class="clr-input" />
+              </div>
+            </div>
+          </div>
+
+          <div class="error active" *ngIf="loginError">
+            Invalid user name or password
+          </div>
+
+          <button type="submit" class="btn btn-primary" (click)="onSubmit()">Login</button>
+        </div>
+      </form>
+    </div>
+
+  </div>
+</div>

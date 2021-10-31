@@ -1,0 +1,29 @@
+<div class="content-container">
+  <div class="content-area">
+    <div class="clr-row">
+      <div class="clr-col-6">
+        <canvas baseChart [datasets]="pieData" [labels]="pieLabel" [options]="pieOptions" [chartType]="'pie'"
+                width="200" height="300">
+        </canvas>
+      </div>
+      <div class="clr-col-6">
+        <canvas baseChart [datasets]="barData" [labels]="barLabel" [options]="barOptions" [chartType]="'bar'"
+                width="200" height="300">
+        </canvas>
+      </div>
+    </div>
+    <div class="clr-row">
+      <div class="clr-col-6">
+        <canvas baseChart [datasets]="lineData" [labels]="lineLabel" [options]="lineOptions" [chartType]="'line'"
+                width="200" height="300">
+        </canvas>
+      </div>
+      <div class="clr-col-6">
+        <canvas baseChart [datasets]="columnData" [labels]="columnLabel" [options]="columnOptions" [chartType]="'bar'"
+                width="200" height="300">
+        </canvas>
+      </div>
+    </div>
+  </div>
+</div>
+
