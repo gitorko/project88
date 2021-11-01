@@ -2,7 +2,9 @@
 
 Angular + Clarity + SpringBoot + JWT + Spring Security + Authentication + Authorization + Charts
 
-## Postgres DB
+## Setup
+
+### Postgres DB
 
 ```
 docker run -p 5432:5432 --name pg-container -e POSTGRES_PASSWORD=password -d postgres:9.6.10
