@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
       .subscribe(data => {
         console.log(data);
         sessionStorage.setItem('token', data.token);
-        sessionStorage.setItem('user', data.userName);
+        sessionStorage.setItem('user', data.username);
         sessionStorage.setItem('roles', JSON.stringify(data.roles));
         this.router.navigate(['/']).then(() => {
           window.location.reload();
