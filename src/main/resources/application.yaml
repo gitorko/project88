@@ -11,3 +11,7 @@ spring:
     hibernate.ddl-auto: create-drop
     properties.hibernate.temp.use_jdbc_metadata_defaults: false
     database-platform: org.hibernate.dialect.PostgreSQLDialect
+
+jwttoken.secret: mysecretkey
+# in milliseconds (5 mins)
+jwttoken.expiration: 300000

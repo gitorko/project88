@@ -6,7 +6,7 @@ import com.demo.project88.domain.Customer;
 import com.demo.project88.repo.CustomerRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,8 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 public class HomeController {
 
-    @Autowired
-    CustomerRepository customerRepo;
+    final CustomerRepository customerRepo;
 
     @GetMapping(value = "/api/time")
     public Date serverTime() {
@@ -29,16 +28,19 @@ public class HomeController {
     }
 
     @GetMapping(value = "/api/customer")
+    @PreAuthorize("hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')")
     public Iterable<Customer> getCustomers() {
         return customerRepo.findAll();
     }
 
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @PostMapping(value = "/api/customer")
     public Customer saveCustomer(@RequestBody Customer customer) {
         log.info("Saving customer!");
         return customerRepo.save(customer);
     }
 
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @DeleteMapping(value = "/api/customer/{id}")
     public void deleteCustomer(@PathVariable Long id) {
         log.info("Deleting customer: {}", id);

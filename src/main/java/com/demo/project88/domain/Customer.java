@@ -2,7 +2,6 @@ package com.demo.project88.domain;
 
 import java.io.Serializable;
 import javax.persistence.Basic;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -27,13 +26,10 @@ public class Customer implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Basic(optional = false)
-    @Column(name = "id")
     private Long id;
     @Size(max = 45)
-    @Column(name = "first_name")
     private String firstName;
     @Size(max = 45)
-    @Column(name = "last_name")
     private String lastName;
     private String city;
 

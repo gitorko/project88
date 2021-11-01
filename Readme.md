@@ -1,6 +1,6 @@
 # Project88
 
-Polling System
+Angular + Clarity + SpringBoot + JWT + Spring Security + Authentication + Authorization + Charts
 
 ## Postgres DB
 
@@ -36,6 +36,9 @@ Open [http://localhost:4200](http://localhost:4200) to view it in the browser.
 ```
 user: admin
 pwd: admin@123
+
+user: user
+pwd: user@123
 ```
 
 ### Prod
@@ -52,21 +55,8 @@ Open [http://localhost:8080](http://localhost:8080) to view it in the browser.
 ```
 user: admin
 pwd: admin@123
+
+user: user
+pwd: user@123
 ```
-
-## Advanced Topics
-
-@Input - Parent to child communication.
-
-@Output - Child to parent communication. EventEmitter.
-
-Pipes - Custom Pipe
-
-HTTP error handling
-
-Route parameters - ActivatedRoute.
-
-Nested routes - children, router-outlet.
-
-Named router outlet.
 
