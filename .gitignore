@@ -4,9 +4,7 @@
 ################################################################################
 #REACT
 ################################################################################
-project80-ui/node_modules/
-project80-ui/package-lock.json
-project80-ui/yarn.lock
+/ui/node_modules/
 
 # dependencies
 /node_modules
