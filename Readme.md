@@ -4,6 +4,22 @@ Angular + Clarity + SpringBoot + JWT + Spring Security + Authentication + Author
 
 ## Setup
 
+Check the version of java, node & yarn.
+
+```bash
+npm i -g yarn
+$java -version
+openjdk version "11.0.7" 2020-04-14 LTS
+$node --version
+v14.17.0
+$npm --version
+6.14.13
+$yarn --version
+1.22.17
+$docker --version
+Docker version 19.03.5, build 633a0ea
+```
+
 ### Postgres DB
 
 ```
