@@ -26,7 +26,6 @@ export class LoginComponent implements OnInit {
   onSubmit(): void {
     this.restService.login(this.loginForm.value.username, this.loginForm.value.password)
       .subscribe(data => {
-        console.log(data);
         sessionStorage.setItem('token', data.token);
         sessionStorage.setItem('user', data.username);
         sessionStorage.setItem('roles', JSON.stringify(data.roles));
