@@ -1,8 +1,8 @@
 <div class="content-container">
   <div class="content-area">
     <div class="login-wrapper">
-      <!-- form group binding -->
-      <form class="login" [formGroup]="loginForm">
+      <!-- model driven form with validation -->
+      <form class="login" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
         <section class="title">
           Clarity App Login
         </section>
@@ -27,7 +27,7 @@
             Invalid user name or password
           </div>
 
-          <button type="submit" class="btn btn-primary" (click)="onSubmit()">Login</button>
+          <button type="submit" class="btn btn-primary" [disabled]="!loginForm.valid">Login</button>
         </div>
       </form>
     </div>

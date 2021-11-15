@@ -42,14 +42,15 @@
         </clr-datagrid>
 
         <div class="clr-col-12">
-          <form class="clr-form clr-form-horizontal">
+          <!--  template driven form-->
+          <form class="clr-form clr-form-horizontal" (ngSubmit)="saveCustomer()">
             <div class="clr-form-control">
               <label for="firstName" class="clr-control-label">First Name</label>
               <div class="clr-control-container">
                 <div class="clr-input-wrapper">
                   <!-- two way data binding -->
                   <input type="text" [(ngModel)]="customer.firstName" id="firstName" name="firstName"
-                         placeholder="Placeholder" class="clr-input"/>
+                         placeholder="Firt Name" class="clr-input"/>
                 </div>
               </div>
             </div>
@@ -58,14 +59,14 @@
               <div class="clr-control-container">
                 <div class="clr-input-wrapper">
                   <input [(ngModel)]="customer.lastName" type="text" id="lastName" name="lastName"
-                         placeholder="Placeholder" class="clr-input"/>
+                         placeholder="Last Name" class="clr-input"/>
                 </div>
               </div>
             </div>
             <div class="clr-form-control">
               <div class="clr-control-container">
                 <!-- event binding -->
-                <button type="submit" class="btn btn-primary" (click)="saveCustomer()">Save</button>
+                <button type="submit" class="btn btn-primary" [disabled]="">Save</button>
               </div>
             </div>
           </form>

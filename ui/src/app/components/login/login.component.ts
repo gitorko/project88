@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {RestService} from '../../services/rest.service';
 import {Router} from '@angular/router';
-import {FormBuilder, FormGroup} from '@angular/forms';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -14,8 +14,8 @@ export class LoginComponent implements OnInit {
 
   constructor(private restService: RestService, private router: Router, private formBuilder: FormBuilder) {
     this.loginForm = this.formBuilder.group({
-      username: '',
-      password: ''
+      username: ['', Validators.required ],
+      password: ['', Validators.required ]
     });
   }
 
