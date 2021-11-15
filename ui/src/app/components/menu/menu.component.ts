@@ -11,7 +11,7 @@ export class MenuComponent implements OnInit {
 
   user: string | null | undefined;
 
-  constructor(private restService: RestService, private router: Router) {
+  constructor(private restService: RestService) {
     ClarityIcons.addIcons(homeIcon);
     ClarityIcons.addIcons(userIcon);
   }
@@ -21,10 +21,6 @@ export class MenuComponent implements OnInit {
   }
 
   logout(): void {
-    console.log('logout!');
-    sessionStorage.clear();
-    this.router.navigate(['/login']).then(() => {
-      window.location.reload();
-    });
+    this.restService.logout();
   }
 }

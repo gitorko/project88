@@ -28,38 +28,36 @@ export class RestService {
   }
 
   public getCustomers(): Observable<Customer[]> {
-    const token = 'Bearer ' + sessionStorage.getItem('token');
-    const headers = new HttpHeaders().set('Authorization', token);
-    return this.http.get<Customer[]>('/api/customer', {headers});
+    return this.http.get<Customer[]>('/api/customer');
   }
 
   public saveCustomer(customer: Customer): Observable<any> {
-    const token = 'Bearer ' + sessionStorage.getItem('token');
-    const headers = new HttpHeaders().set('Authorization', token);
-    return this.http.post('/api/customer', customer, {headers});
+    return this.http.post('/api/customer', customer);
   }
 
   public deleteCustomer(id: any): Observable<any> {
-    const token = 'Bearer ' + sessionStorage.getItem('token');
-    const headers = new HttpHeaders().set('Authorization', token);
-    return this.http.delete('/api/customer/' + id, {headers});
+    return this.http.delete('/api/customer/' + id);
   }
 
   public getPieData(): Observable<any> {
-    const token = 'Bearer ' + sessionStorage.getItem('token');
-    const headers = new HttpHeaders().set('Authorization', token);
-    return this.http.get<any[]>('/api/pie-data', {headers});
+    return this.http.get<any[]>('/api/pie-data');
   }
 
   public getColumnData(): Observable<any> {
-    const token = 'Bearer ' + sessionStorage.getItem('token');
-    const headers = new HttpHeaders().set('Authorization', token);
-    return this.http.get<any[]>('/api/column-data', {headers});
+    return this.http.get<any[]>('/api/column-data');
   }
 
   public login(username: string, password: string): Observable<any> {
     const headers = new HttpHeaders().set('Content-Type', 'application/json');
     return this.http.post('/api/auth/login', {username, password}, {headers});
+  }
+
+  public logout(): void {
+    console.log('logout!');
+    sessionStorage.clear();
+    this.router.navigate(['/login']).then(() => {
+      window.location.reload();
+    });
   }
 
   public getTime(): Observable<string> {
